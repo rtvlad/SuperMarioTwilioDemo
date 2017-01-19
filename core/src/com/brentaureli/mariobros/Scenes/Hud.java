@@ -36,6 +36,9 @@ public class Hud implements Disposable{
     private Label worldLabel;
     private Label marioLabel;
 
+    private Label twlInstrLabel;
+    private Label twlPhoneLabel;
+
     public Hud(SpriteBatch sb){
         //define our tracking variables
         worldTimer = 300;
@@ -62,6 +65,8 @@ public class Hud implements Disposable{
         levelLabel = new Label("1-1", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         worldLabel = new Label("WORLD", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
         marioLabel = new Label("MARIO", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        twlInstrLabel = new Label("DIAL NUMBER:", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        twlPhoneLabel = new Label("+14152002487", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
         //add our labels to our table, padding the top, and giving them all equal width with expandX
         table.add(marioLabel).expandX().padTop(10);
@@ -72,6 +77,11 @@ public class Hud implements Disposable{
         table.add(scoreLabel).expandX();
         table.add(levelLabel).expandX();
         table.add(countdownLabel).expandX();
+
+        table.row();
+        table.add(twlInstrLabel).expandX().padTop(15);
+        table.row();
+        table.add(twlPhoneLabel).expandX();
 
         //add our table to the stage
         stage.addActor(table);
